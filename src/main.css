@@ -10,12 +10,6 @@
     style: normal;
 }
 
-@font-face {
-    font-family: 'Figtree';
-    src: url('./assets/fonts/Figtree-Italic-VariableFont_wght.ttf') format('truetype');
-    style: italic;
-}
-
 :root {
     --Yellow: hsl(47, 88%, 63%);
     --White: hsl(0, 0%, 100%);
@@ -32,4 +26,95 @@ body {
     min-height: 100vh;
     font: normal 1.6rem var(--primary-fonts);
     background: var(--Yellow) no-repeat center center / cover fixed;
+
+    display: grid;
+    grid-template-rows: 1fr 50px;
+    justify-items: center;
+    align-items: center;
+}
+
+.card-container {
+    width: 350px;
+    padding: 24px;
+    border: 1px solid var(--Black);
+    border-radius: 20px;
+    box-shadow: 10px 10px 0px 0px rgba(0,0,0,1);
+    background-color: var(--White);
+}
+
+.card-container > *~* {
+    margin-top: 24px;
+}
+
+.preview-img {
+    height: 200px;
+    border-radius: 10px;
+    background: url(./assets/images/illustration-article.svg) no-repeat center center / cover;
+}
+
+.preview-info p~* {
+    margin-top: 12px;
+}
+
+.preview-info .tag {
+    width: fit-content;
+    padding: 4px 12px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 800;
+    background-color: var(--Yellow);
+}
+
+.preview-info .title {
+    display: block;
+    color: var(--Black);
+    text-decoration: none;
+    font: 800 1.5em var(--primary-fonts);
+}
+
+.preview-info .title:hover {
+    color: var(--Yellow);
+    cursor: pointer;
+}
+
+.preview-info .description {
+    font-weight: 100;
+    color: var(--Grey);
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+
+}
+
+.author-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background: url(./assets/images/image-avatar.webp) no-repeat center center / cover;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 375px) {
+    body {
+        font-size: 1.4rem;
+    }
+
+    .card-container {
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
 }
